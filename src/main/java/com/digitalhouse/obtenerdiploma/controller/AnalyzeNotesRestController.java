@@ -19,7 +19,7 @@ public class AnalyzeNotesRestController {
   }
 
   @PostMapping("/analyzeNotes")
-  public ResponseEntity<Object>  analyzeNotes(@RequestBody @Valid StudentDTO notes){
+  public ResponseEntity<?>  analyzeNotes(@RequestBody @Valid StudentDTO notes){
     return new ResponseEntity<>(certificateService.analyzeNotes(notes), HttpStatus.CREATED);
   }
 }
