@@ -14,12 +14,12 @@ public class CertificateServiceImpl implements CertificateService {
     return response;
   }
 
-  private Double calculateAverage(StudentDTO notes) {
+  public Double calculateAverage(StudentDTO notes) {
     int sum = notes.getSubjects().stream().mapToInt(SubjectDTO::getNote).sum();
     return sum / (double) notes.getSubjects().size();
   }
 
-  private String writeDiploma(StudentDTO notes) {
+  public String writeDiploma(StudentDTO notes) {
     Double localAverage = calculateAverage(notes);
     String studentName = notes.getName();
     String message = "Sua média foi de " + localAverage;
@@ -28,7 +28,7 @@ public class CertificateServiceImpl implements CertificateService {
     return message;
   }
 
-  private String withHonors(Double localAverage, String localStudent) {
+  public String withHonors(Double localAverage, String localStudent) {
     return "¡Felicitaciones " + localStudent + "! Usted tiene el gran promedio de " + localAverage;
   }
 }

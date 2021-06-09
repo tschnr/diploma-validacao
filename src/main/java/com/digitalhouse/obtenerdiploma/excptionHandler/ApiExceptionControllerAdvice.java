@@ -29,4 +29,9 @@ public class ApiExceptionControllerAdvice {
 
         return new ResponseEntity<>("Invalid filed", HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<Object> errorNullPointerException(NullPointerException e){
+        return new ResponseEntity<>("Invalid body", HttpStatus.BAD_REQUEST);
+    }
 }
